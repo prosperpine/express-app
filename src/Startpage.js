@@ -49,7 +49,7 @@ export const Startpage = () => {
             <div className='movie' key={movie.id}>
               <div>
                 <h3>{movie.title} </h3>
-                <h4>Released {movie.release_year} </h4>
+                <h5>Released {movie.release_year}</h5>
               </div>
             </div>
           ))}

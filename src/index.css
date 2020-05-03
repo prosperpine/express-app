@@ -44,6 +44,7 @@ code {
   border-radius: 16px;
   padding: 30px;
   box-sizing: border-box;
+  margin-bottom: 40px;
 }
 
 h1 {
@@ -62,6 +63,14 @@ h4 {
   font-size: 2.4rem;
 }
 
+h5 {
+  font-size: 1.5rem;
+}
+
+p {
+  font-size: 1.4rem;
+}
+
 .searchField {
   display: flex;
   width: 50%;
@@ -76,5 +85,40 @@ button {
   border-radius: 10px;
 }
 .movieList {
+  background-color: black;
+  padding: 50px 100px;
+}
+.icon {
+  color: white;
+  font-size: 3rem;
+}
+
+.genre {
+  display: flex;
+  justify-content: space-around;
+  height: 500px;
+  padding-bottom: 100px;
+}
+
+.inputForm {
+  width: 100%;
+  height: 50%;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  outline: none;
+  resize: none;
+  font-size: 2rem;
+}
+
+.notFoundText {
+  text-align: center;
+  padding: 80px;
+  background-color: black;
+}
+
+.genreList {
   background-color: black;
 }

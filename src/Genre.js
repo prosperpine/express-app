@@ -18,52 +18,57 @@ export const Genre = () => {
       });
   };
   return (
-    <div>
-      <div>
-        <Link to={`/`}>
-          <div className='icon-container'>
-            <div className='icon'>
-              <i className='fas fa-chevron-circle-left'></i>
-            </div>
-          </div>
-        </Link>
-      </div>
-      <form
-        onSubmit={(event) => {
-          choseGenre(genre);
-          event.preventDefault();
-        }}
-      >
-        <label>
-          <input
-            required
-            type='text'
-            value={genre}
-            placeholder='Enter your genre'
-            onChange={(event) => setGenre(event.target.value)}
-          />
-        </label>
-
-        <button className='input-button' type='submit'>
-          search
-        </button>
-      </form>
-      {chosenGenre.length === 0 ? (
+    <main>
+      <section className='welcome genre'>
         <div>
-          <p>
-            Sorry, we couldn't find your genre. Please check your spelling or
-            try another one.
-          </p>
+          <Link to={`/`}>
+            <div className='icon-container'>
+              <div className='icon'>
+                <i className='fas fa-chevron-circle-left'></i>
+              </div>
+            </div>
+          </Link>
         </div>
-      ) : (
-        chosenGenre.map((item) => (
-          <div>
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
+        <div className='inputContainer'>
+          <form
+            onSubmit={(event) => {
+              choseGenre(genre);
+              event.preventDefault();
+            }}
+          >
+            <div>
+              <label className='input-button' type='submit'>
+                <input
+                  className='inputForm'
+                  required
+                  type='text'
+                  value={genre}
+                  placeholder='Enter your genre'
+                  onChange={(event) => setGenre(event.target.value)}
+                />
+              </label>
+            </div>
+          </form>
+        </div>
+      </section>
+      <div className='movieList'>
+        {chosenGenre.length === 0 ? (
+          <div className='notFoundText'>
+            <h4>
+              Sorry, we couldn't find your genre. Please check your spelling or
+              try another one.
+            </h4>
           </div>
-        ))
-      )}
-    </div>
+        ) : (
+          chosenGenre.map((item) => (
+            <div>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </div>
+          ))
+        )}
+      </div>
+    </main>
   );
 
   //
