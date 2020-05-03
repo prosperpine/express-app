@@ -1,45 +1,36 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-export const Category = () => {
-  const [movies, setMovies] = useState([]);
-  const [category, setCategory] = useState(['']);
-  const [chosenCategory, setChosenCategory] = useState(['']);
+export const Genre = () => {
+  const [genre, setGenre] = useState(['']);
+  const [chosenGenre, setChosenGenre] = useState(['']);
 
-  const choseCategory = (banana) => {
-    fetch(`https://first-express-project.herokuapp.com/categories/${banana}`)
+  const choseGenre = (banana) => {
+    fetch(`https://first-express-project.herokuapp.com/genres/${banana}`)
       .then((data) => data.json())
 
       .then((json) => {
-        setChosenCategory(json);
+        setChosenGenre(json);
         console.log('hello');
         console.log(json);
         //   setCountry('');
-        console.log(chosenCategory);
+        console.log(chosenGenre);
       });
   };
-
-  // useEffect(() => {
-  //   fetch(API)
-  //     .then((res) => res.json())
-  //     .then((json) => {
-  //       setMovies(json);
-  //     });
-  // }, []);
-
-  //  useEffect(() => {
-  //   fetch(`https://first-express-project.herokuapp.com/categories/${country}`)
-  //     .then((res) => res.json())
-  //     .then((json) => {
-  //       console.log(json);
-  //       setChosenCountry(json);
-  //     });
-  // }, [country]);
-
   return (
     <div>
+      <div>
+        <Link to={`/`}>
+          <div className='icon-container'>
+            <div className='icon'>
+              <i className='fas fa-chevron-circle-left'></i>
+            </div>
+          </div>
+        </Link>
+      </div>
       <form
         onSubmit={(event) => {
-          choseCategory(category);
+          choseGenre(genre);
           event.preventDefault();
         }}
       >
@@ -47,9 +38,9 @@ export const Category = () => {
           <input
             required
             type='text'
-            value={category}
-            placeholder='Enter your Category'
-            onChange={(event) => setCategory(event.target.value)}
+            value={genre}
+            placeholder='Enter your genre'
+            onChange={(event) => setGenre(event.target.value)}
           />
         </label>
 
@@ -57,12 +48,21 @@ export const Category = () => {
           search
         </button>
       </form>
-      {chosenCategory.map((item) => (
+      {chosenGenre.length === 0 ? (
         <div>
-          <h3>{item.title}</h3>
-          <p>{item.description}</p>
+          <p>
+            Sorry, we couldn't find your genre. Please check your spelling or
+            try another one.
+          </p>
         </div>
-      ))}
+      ) : (
+        chosenGenre.map((item) => (
+          <div>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </div>
+        ))
+      )}
     </div>
   );
 

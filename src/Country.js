@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 //const data = 'https://first-express-project.herokuapp.com/movies';
 
@@ -41,6 +42,15 @@ export const Country = () => {
 
   return (
     <div>
+      <div>
+        <Link to={`/`}>
+          <div className='icon-container'>
+            <div className='icon'>
+              <i className='fas fa-chevron-circle-left'></i>
+            </div>
+          </div>
+        </Link>
+      </div>
       <form
         onSubmit={(event) => {
           choseCountry(country);
@@ -61,12 +71,21 @@ export const Country = () => {
           search
         </button>
       </form>
-      {chosen.map((item) => (
+      {chosen.length === 0 ? (
         <div>
-          <h3>{item.title}</h3>
-          <p>{item.description}</p>
+          <p>
+            Sorry, we couldn't find your country. Please check your spelling or
+            try another one.
+          </p>
         </div>
-      ))}
+      ) : (
+        chosen.map((item) => (
+          <div>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </div>
+        ))
+      )}
     </div>
   );
 
