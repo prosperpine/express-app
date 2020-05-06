@@ -35,7 +35,7 @@ code {
 
 .welcome {
   margin-top: 40px;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.3);
   color: white;
   display: flex;
   align-items: center;
@@ -73,12 +73,12 @@ p {
 
 .searchField {
   display: flex;
-  width: 50%;
+  width: 80%;
   justify-content: space-evenly;
 }
 
 button {
-  width: 70%;
+  width: 100%;
   padding: 20px;
   font-weight: bold;
   font-size: 1rem;
@@ -121,4 +121,17 @@ button {
 
 .genreList {
   background-color: black;
+}
+
+footer {
+  height: 200px;
+  text-align: center;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+}
+
+footer p {
+  display: flex;
+  align-items: center;
 }

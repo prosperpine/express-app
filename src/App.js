@@ -4,6 +4,9 @@ import { Startpage } from './Startpage.js';
 import { Country } from './Country.js';
 import { Genre } from './Genre.js';
 import { Movie } from './Movie.js';
+import { Director } from './Director.js';
+import { Actor } from './Actor.js';
+import { Footer } from './Footer.js';
 
 export const App = () => {
   return (
@@ -21,7 +24,14 @@ export const App = () => {
         <Route path='/Movie'>
           <Movie />
         </Route>
+        <Route path='/Director'>
+          <Director />
+        </Route>
+        <Route path='/Actor'>
+          <Actor />
+        </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 };

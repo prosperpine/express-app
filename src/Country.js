@@ -10,8 +10,8 @@ export const Country = () => {
   const [country, setCountry] = useState(['']);
   const [chosen, setChosen] = useState(['']);
 
-  const choseCountry = (banana) => {
-    fetch(`https://first-express-project.herokuapp.com/countries/${banana}`)
+  const choseCountry = (country) => {
+    fetch(`https://first-express-project.herokuapp.com/countries/${country}`)
       .then((data) => data.json())
 
       .then((json) => {
@@ -31,85 +31,59 @@ export const Country = () => {
       });
   }, []);
 
-  //  useEffect(() => {
-  //   fetch(`https://first-express-project.herokuapp.com/movies/${country}`)
-  //     .then((res) => res.json())
-  //     .then((json) => {
-  //       console.log(json);
-  //       setChosenCountry(json);
-  //     });
-  // }, [country]);
-
   return (
-    <div>
-      <div>
-        <Link to={`/`}>
-          <div className='icon-container'>
-            <div className='icon'>
-              <i className='fas fa-chevron-circle-left'></i>
-            </div>
-          </div>
-        </Link>
-      </div>
-      <form
-        onSubmit={(event) => {
-          choseCountry(country);
-          event.preventDefault();
-        }}
-      >
-        <label>
-          <input
-            required
-            type='text'
-            value={country}
-            placeholder='Enter your country'
-            onChange={(event) => setCountry(event.target.value)}
-          />
-        </label>
-
-        <button className='input-button' type='submit'>
-          search
-        </button>
-      </form>
-      {chosen.length === 0 ? (
+    <main>
+      <section className='welcome genre'>
         <div>
-          <p>
-            Sorry, we couldn't find your country. Please check your spelling or
-            try another one.
-          </p>
+          <Link to={`/`}>
+            <div className='icon-container'>
+              <div className='icon'>
+                <i className='fas fa-chevron-circle-left'></i>
+              </div>
+            </div>
+          </Link>
         </div>
-      ) : (
-        chosen.map((item) => (
-          <div>
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
+        <div className='inputContainer'>
+          <h4>Find movies from a particular country.</h4>
+          <form
+            onSubmit={(event) => {
+              choseCountry(country);
+              event.preventDefault();
+            }}
+          >
+            <label className='input-button' type='submit'>
+              <input
+                className='inputForm'
+                required
+                type='text'
+                value={country}
+                placeholder='ie France'
+                onChange={(event) => setCountry(event.target.value)}
+              />
+            </label>
+          </form>
+        </div>
+      </section>
+      <div className='movieList'>
+        {chosen.length === 0 ? (
+          <div className='notFoundText'>
+            <h4>
+              Sorry, we couldn't find your country. Please check your spelling
+              or try another one.
+            </h4>
           </div>
-        ))
-      )}
-    </div>
+        ) : (
+          chosen.map((item) => (
+            <div>
+              <h3>{item.title}</h3>
+              <h2>{item.release_year}</h2>
+              <h2>{item.director}</h2>
+              <h2>{item.duration}</h2>
+              <p>{item.description}</p>
+            </div>
+          ))
+        )}
+      </div>
+    </main>
   );
-
-  //
-  //   {movies.slice(0, 30).map((movie, index) => (
-  //     <div className='movie' key={movie.id}>
-  //       <div>
-  //         <h1>{movie.title} </h1>
-  //         <h4>Released {movie.release_date} </h4>
-  //       </div>
-  //     </div>
-  //   ))}
-  //   )
-  // </div>
-  // );
 };
-
-{
-  /* //  <p>hello</p>
-      //  {movies.map((movie) => movie.title)} 
-      // {movies.slice(0, 30).map((movie, index) => (
-      //   <div className='movie' key={movie.id}>
-      //     <h1>{movie.title} </h1>
-      //     <p>{movie.description} </p>
-      //   </div>
-      // ))}   */
-}

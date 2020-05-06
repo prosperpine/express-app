@@ -20,26 +20,31 @@ export const Startpage = () => {
         <section className='welcome'>
           <h1>Welcome</h1>
           <h3>Looking for a movie?</h3>
+          <h5>Search by</h5>
           <article className='searchField'>
             <div>
-              <h4>Search by</h4>
-
               <Link to={`/Genre/`}>
                 <button>Genre</button>
               </Link>
             </div>
             <div>
-              <h4>Search by</h4>
-
               <Link to={`/Country/`}>
                 <button>Country</button>
               </Link>
             </div>
             <div>
-              <h4>Search for a</h4>
-
               <Link to={`/Movie/`}>
                 <button>Specific movie</button>
+              </Link>
+            </div>
+            <div>
+              <Link to={`/Director/`}>
+                <button>Director</button>
+              </Link>
+            </div>
+            <div>
+              <Link to={`/Actor/`}>
+                <button>Actor</button>
               </Link>
             </div>
           </article>
@@ -53,33 +58,8 @@ export const Startpage = () => {
               </div>
             </div>
           ))}
-          )
         </div>
       </div>
     </main>
   );
-
-  //
-  //   {movies.slice(0, 30).map((movie, index) => (
-  //     <div className='movie' key={movie.id}>
-  //       <div>
-  //         <h1>{movie.title} </h1>
-  //         <h4>Released {movie.release_date} </h4>
-  //       </div>
-  //     </div>
-  //   ))}
-  //   )
-  // </div>
-  // );
 };
-
-{
-  /* //  <p>hello</p>
-      //  {movies.map((movie) => movie.title)} 
-      // {movies.slice(0, 30).map((movie, index) => (
-      //   <div className='movie' key={movie.id}>
-      //     <h1>{movie.title} </h1>
-      //     <p>{movie.description} </p>
-      //   </div>
-      // ))}   */
-}

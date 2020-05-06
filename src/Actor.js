@@ -1,20 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export const Genre = () => {
-  const [genre, setGenre] = useState(['']);
-  const [chosenGenre, setChosenGenre] = useState(['']);
+export const Actor = () => {
+  const [actor, setActor] = useState(['']);
+  const [chosenActor, setChosenActor] = useState(['']);
 
-  const choseGenre = (genre) => {
-    fetch(`https://first-express-project.herokuapp.com/genres/${genre}`)
+  const choseActor = (actor) => {
+    fetch(`https://first-express-project.herokuapp.com/actors/${actor}`)
       .then((data) => data.json())
-
       .then((json) => {
-        setChosenGenre(json);
-        console.log('hello');
-        console.log(json);
-        //   setCountry('');
-        console.log(chosenGenre);
+        setChosenActor(json);
       });
   };
   return (
@@ -30,11 +25,10 @@ export const Genre = () => {
           </Link>
         </div>
         <div className='inputContainer'>
-          <h4>Enter your favourite genre,</h4>
-          <h5>ie Dramas, Comedies, Sci-Fi, Action</h5>
+          <h4>Enter your favourite actor/actress.</h4>
           <form
             onSubmit={(event) => {
-              choseGenre(genre);
+              choseActor(actor);
               event.preventDefault();
             }}
           >
@@ -43,24 +37,24 @@ export const Genre = () => {
                 className='inputForm'
                 required
                 type='text'
-                value={genre}
-                placeholder='ie Dramas'
-                onChange={(event) => setGenre(event.target.value)}
+                value={actor}
+                placeholder='ie Meryl Streep'
+                onChange={(event) => setActor(event.target.value)}
               />
             </label>
           </form>
         </div>
       </section>
       <div className='movieList'>
-        {chosenGenre.length === 0 ? (
+        {chosenActor.length === 0 ? (
           <div className='notFoundText'>
             <h4>
-              Sorry, we couldn't find your genre. Please check your spelling or
-              try another one.
+              Sorry, we couldn't find your actor/actress. Please check your
+              spelling or try another one.
             </h4>
           </div>
         ) : (
-          chosenGenre.map((item) => (
+          chosenActor.map((item) => (
             <div>
               <h3>{item.title}</h3>
               <h2>{item.release_year}</h2>
