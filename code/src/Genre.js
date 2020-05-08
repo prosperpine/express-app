@@ -11,10 +11,6 @@ export const Genre = () => {
 
       .then((json) => {
         setChosenGenre(json);
-        console.log('hello');
-        console.log(json);
-        //   setCountry('');
-        console.log(chosenGenre);
       });
   };
   return (

@@ -10,9 +10,6 @@ export const Director = () => {
       .then((data) => data.json())
       .then((json) => {
         setChosenDirector(json);
-        console.log('hello');
-        console.log(json);
-        console.log(chosenDirector);
       });
   };
   return (

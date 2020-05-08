@@ -23,16 +23,6 @@ code {
   font-family: 'Poppins', sans-serif;
 }
 
-/* .background {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url('popcorn.jpg');
-
-  /* Position and center the image to scale nicely on all screens  background-position: center;
-
-  background-size: cover;
-  position: relative;
-} */
-
 .welcome {
   margin-top: 40px;
   background-color: rgba(0, 0, 0, 0.3);

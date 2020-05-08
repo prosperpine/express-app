@@ -13,9 +13,6 @@ export const Movie = () => {
 
       .then((json) => {
         setChosenMovie(json);
-        console.log('hello');
-        console.log(json);
-        console.log(chosenMovie);
       });
   };
 

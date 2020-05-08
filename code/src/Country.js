@@ -16,10 +16,6 @@ export const Country = () => {
 
       .then((json) => {
         setChosen(json);
-        console.log('hello');
-        console.log(json);
-        //   setCountry('');
-        console.log(chosen);
       });
   };
 
